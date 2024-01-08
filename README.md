@@ -1,10 +1,6 @@
-# Resume
-Note, this is a PNG (couldn't figure out how to make github embed a pdf to the
-readme directly), so it may look blurry. See the latest release https://github.com/jonathan-d-zhang/resume/releases/latest.
+# My resume
 
-![my resume](https://github.com/jonathan-d-zhang/resume/releases/latest/download/main.png)
-
-This repo can be used as a template.
+Canonical version is at https://bradleyreynolds.blob.core.windows.net/$web/Resume-BradleyReynolds.pdf
 
 # Building Locally
 ## tlmgr
