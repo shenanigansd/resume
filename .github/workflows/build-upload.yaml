@@ -27,7 +27,7 @@ jobs:
         uses: azure/CLI@4db43908b9df2e7ac93c8275a8f9a448c59338dd # v1.0.9
         with:
           inlineScript: |
-            az storage blob upload-batch --account-name bradleyreynolds --auth-mode key -d '$web' -s ./build/Resume-BradleyReynolds.pdf
+            az storage blob upload --account-name bradleyreynolds --container-name '$web' --name Resume-BradleyReynolds.pdf --file ./build/Resume-BradleyReynolds.pdf --overwrite
 
       - name: "Logout of Azure"
         run: |
