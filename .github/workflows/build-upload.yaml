@@ -16,6 +16,14 @@ jobs:
       - name: "Checkout repository"
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
+      - name: "Setup Texlive Environment"
+        uses: teatimeguest/setup-texlive-action@464309d7bbb9b9694dde06932a1861fff69035b8 # v3.0.1
+        with:
+          package-file: DEPENDS.txt
+
+      - name: "Build PDFs"
+        run: make
+
       - name: "Login to Azure"
         uses: azure/login@de95379fe4dadc2defb305917eaa7e5dde727294 # v1.5.1
         with:
