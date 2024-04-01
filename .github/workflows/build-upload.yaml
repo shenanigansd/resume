@@ -14,10 +14,10 @@ jobs:
 
     steps:
       - name: "Checkout repository"
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633 # v4.1.2
 
       - name: "Setup Texlive Environment"
-        uses: teatimeguest/setup-texlive-action@fbb60c0e8347e114a4d3ff7d8b78868b19567004 # v3.0.2
+        uses: teatimeguest/setup-texlive-action@9855afe404b85dff721b382b9b50337e2dc252bd # v3.2.1
         with:
           package-file: DEPENDS.txt
 
@@ -25,14 +25,14 @@ jobs:
         run: make
 
       - name: "Login to Azure"
-        uses: azure/login@cb79c773a3cfa27f31f25eb3f677781210c9ce3d # v1.6.1
+        uses: azure/login@8c334a195cbb38e46038007b304988d888bf676a # v2.0.0
         with:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: "Upload to blob storage"
-        uses: azure/CLI@4db43908b9df2e7ac93c8275a8f9a448c59338dd # v1.0.9
+        uses: azure/CLI@965c8d7571d2231a54e321ddd07f7b10317f34d9 # v2.0.0
         with:
           inlineScript: |
             az storage blob upload --account-name bradleyreynolds --container-name '$web' --name Resume-BradleyReynolds.pdf --file ./build/Resume-BradleyReynolds.pdf --overwrite
