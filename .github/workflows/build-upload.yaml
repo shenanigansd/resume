@@ -1,4 +1,4 @@
-name: "Build and upload resume"
+name: Build and upload resume
 
 on:
   push:
@@ -13,11 +13,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: "Checkout repository"
-        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
+      - name: Checkout repository
+        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29  # v4.1.6
 
-      - name: "Setup Texlive Environment"
-        run: | 
+      - name: Setup Texlive Environment
+        run: |
           wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
           tar --extract --file install-tl-unx.tar.gz
           rm install-tl-unx.tar.gz
@@ -25,29 +25,29 @@ jobs:
           sudo perl ./install-tl --no-interaction --scheme=scheme-minimal --no-doc-install --no-src-install
           echo "/usr/local/texlive/$(date +%Y)/bin/x86_64-linux" >> $GITHUB_PATH
 
-      - name: "Install Texlive packages"
+      - name: Install Texlive packages
         run: sudo /usr/local/texlive/$(date +%Y)/bin/x86_64-linux/tlmgr install $(cat DEPENDS.txt)
 
-      - name: "Install nox"
+      - name: Install nox
         run: python -m pip install nox
 
-      - name: "Build PDFs"
+      - name: Build PDFs
         run: nox --sessions build_pdfs
 
-      - name: "Login to Azure"
-        uses: azure/login@6c251865b4e6290e7b78be643ea2d005bc51f69a # v2.1.1
+      - name: Login to Azure
+        uses: azure/login@6c251865b4e6290e7b78be643ea2d005bc51f69a  # v2.1.1
         with:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-      - name: "Upload to blob storage"
-        uses: azure/CLI@965c8d7571d2231a54e321ddd07f7b10317f34d9 # v2.0.0
+      - name: Upload to blob storage
+        uses: azure/CLI@965c8d7571d2231a54e321ddd07f7b10317f34d9  # v2.0.0
         with:
           inlineScript: |
             az storage blob upload --account-name bradleyreynolds --container-name '$web' --name Resume-BradleyReynolds.pdf --file ./build/Resume-BradleyReynolds.pdf --overwrite
 
-      - name: "Logout of Azure"
+      - name: Logout of Azure
         run: |
           az logout
         if: always()
