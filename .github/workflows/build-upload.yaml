@@ -17,9 +17,16 @@ jobs:
         uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
 
       - name: "Setup Texlive Environment"
-        uses: teatimeguest/setup-texlive-action@9855afe404b85dff721b382b9b50337e2dc252bd # v3.2.1
-        with:
-          package-file: DEPENDS.txt
+        run: | 
+          wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+          tar --extract --file install-tl-unx.tar.gz
+          rm install-tl-unx.tar.gz
+          cd install-tl-*
+          sudo perl ./install-tl --no-interaction --scheme=scheme-minimal --no-doc-install --no-src-install
+          echo "/usr/local/texlive/$(date +%Y)/bin/x86_64-linux" >> $GITHUB_PATH
+
+      - name: "Install Texlive packages"
+        run: sudo /usr/local/texlive/$(date +%Y)/bin/x86_64-linux/tlmgr install $(cat DEPENDS.txt)
 
       - name: "Install nox"
         run: python -m pip install nox
