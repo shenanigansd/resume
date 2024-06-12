@@ -21,8 +21,11 @@ jobs:
         with:
           package-file: DEPENDS.txt
 
+      - name: "Install nox"
+        run: python -m pip install nox
+
       - name: "Build PDFs"
-        run: make
+        run: nox --sessions build_pdfs
 
       - name: "Login to Azure"
         uses: azure/login@6c251865b4e6290e7b78be643ea2d005bc51f69a # v2.1.1
