@@ -45,7 +45,7 @@ jobs:
         uses: azure/CLI@965c8d7571d2231a54e321ddd07f7b10317f34d9  # v2.0.0
         with:
           inlineScript: |
-            az storage blob upload --account-name bradleyreynolds --container-name '$web' --name Resume-BradleyReynolds.pdf --file ./build/Resume-BradleyReynolds.pdf --overwrite
+            az storage blob upload-batch --account-name bradleyreynolds --destination '$web' --source build --pattern "*.pdf" --overwrite
 
       - name: Logout of Azure
         run: |
