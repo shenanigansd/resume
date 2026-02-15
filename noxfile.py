@@ -19,6 +19,7 @@ def build_pdfs(session: nox.Session) -> None:
     for src_file in SRC_DIR.iterdir():
         session.run(
             "typst",
+            "compile",
             str(src_file),
             Path(BUILD_DIR, src_file.with_suffix(".pdf").name)
         )
