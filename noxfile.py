@@ -18,12 +18,9 @@ def build_pdfs(session: nox.Session) -> None:
     BUILD_DIR.mkdir(exist_ok=True)
     for src_file in SRC_DIR.iterdir():
         session.run(
-            "lualatex",
-            "-halt-on-error",
-            "-file-line-error",
-            "-interaction=nonstopmode",
-            f"-output-directory={BUILD_DIR}",
+            "typst",
             str(src_file),
+            Path(BUILD_DIR, src_file.with_suffix(".pdf").name)
         )
 
 

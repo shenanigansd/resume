@@ -6,4 +6,7 @@ updates:
       interval: monthly
     groups:
       ci-dependencies:
-        patterns: ['*']
+        patterns:
+          - "*"
+    cooldown:
+      default-days: 7
