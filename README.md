@@ -2,5 +2,5 @@
 
 There are multiple resumes, each tailored to a different audience:
 
-- https://bradleyreynolds.blob.core.windows.net/$web/Resume-BradleyReynolds-sysadmin.pdf
-- https://bradleyreynolds.blob.core.windows.net/$web/Resume-BradleyReynolds-dev.pdf
+- https://files.shenanigans.dog/Resume-BradleyReynolds-sysadmin.pdf
+- https://files.shenanigans.dog/Resume-BradleyReynolds-dev.pdf
