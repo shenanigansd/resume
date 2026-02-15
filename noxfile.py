@@ -14,7 +14,7 @@ BUILD_DIR = Path("build")
 
 @nox.session
 def build_pdfs(session: nox.Session) -> None:
-    """Build PDFs from LaTeX sources."""
+    """Compile Typst to PDF."""
     BUILD_DIR.mkdir(exist_ok=True)
     for src_file in SRC_DIR.iterdir():
         session.run(
