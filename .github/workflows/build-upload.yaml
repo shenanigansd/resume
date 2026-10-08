@@ -3,6 +3,11 @@ name: Build and upload resume
 on:
   push:
     branches: [main]
+    paths:
+      - "src/**"
+      - "noxfile.py"
+      - ".github/workflows/build-upload.yaml"
+  workflow_dispatch:
 
 permissions:
   id-token: write
