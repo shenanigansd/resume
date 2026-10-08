@@ -18,6 +18,5 @@
   report decoder. Keep Vipyr Security and Ukraine relief.
 - Not for the resume: the vendor RFID-app teardown (a commercial product, and the notes hold
   the vendor's secrets); any customer names; anything about who proposed what internally.
-- Earlier history to add with dates: the Ruby on Rails project (several years ago; not
-  touched since). Put it in whichever ecosystem file it belongs to with its year range, so the
-  timeline shows it as past rather than current.
+- Earlier history is in [journey.md](journey.md); add the Rails and Java eras to the
+  Technologies block with year ranges so they read as past.

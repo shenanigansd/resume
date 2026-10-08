@@ -13,6 +13,7 @@ its heading. The table below is the chronological view; add a row when you add a
 | [infrastructure.md](infrastructure.md) | identity, endpoints, network, supply chain, investigations |
 | [utvendor.md](utvendor.md) | the vendor-tooling brand, K-ERP Scout, SDK, dashboard, docs |
 | [side-projects.md](side-projects.md) | one-off tools, reverse engineering, volunteer work |
+| [journey.md](journey.md) | the long version: four generations of the same system, 2014 to 2026 |
 | [responsible-ai.md](responsible-ai.md) | the AI-use framing and its bullets |
 | [ideas.md](ideas.md) | parking lot: numbers to confirm, sections to add, things to leave out |
 
